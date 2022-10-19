@@ -1,0 +1,13 @@
+**Feature:** Search for posts, users, tags
+
+**Feature:** Video downloader
+
+**Feature:** Stream API for new posts/activity
+
+**Feature:** Post a new post
+
+**Feature:** Reply to nested comments
+
+**Feature:** Delete a comment, reply or post
+
+

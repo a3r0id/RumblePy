@@ -1,6 +1,5 @@
-from os import listdir
 from rumble_bot import RumbleBot
-import inspect
+import inspect, types
 
 with open ("example.py", 'r')  as stream_example:
     example = "## Example: \r\n```py\r\n" + stream_example.read() + "\r\n```"
@@ -9,7 +8,7 @@ with open ("README.md", 'w+')  as stream_readme:
     stream_readme.write(f"""
 # RumbleBot
 *Unofficial Python wrapper for automating a Rumble account (Rumble.com).*
-* This proof-of-concept is a work in progress, and is primitive at best.
+* This is a work in progress, and is primitive at best.
 * In no way am I affiliated with Rumble.com.
 * This is not intended for public use and I am not responsible for any damage caused by this software.
 
@@ -24,9 +23,11 @@ with open ("README.md", 'a') as stream_append:
     stream_append.write("\r\n## Methods:\r\n")
     method_docs = []
     for func in dir(r):
-        if "__" not in func:
-            doc = inspect.getdoc(getattr(r, func))
-            if doc:
+        if "__" not in func and "method" in str(type(getattr(r, func))):
+            f = getattr(r, func)
+            print(f)
+            doc = getattr(getattr(r, func), "__doc__")
+            if type(getattr(r, func)) != dict and type(getattr(r, func)) != None and doc is not None:
                 source = inspect.getsource(getattr(r, func))
                 definition = "???"
                 for line in source.splitlines():
@@ -44,7 +45,29 @@ with open ("README.md", 'a') as stream_append:
             method_docs.insert(0, method_docs.pop(method_docs.index(item)))
                 
     stream_append.write("\r".join(method_docs))
-        
+    
+# overwrite "rumble_bot/__init__.py" with updated version
+with open ("rumble_bot/__init__.py", 'r') as stream_init:
+    init = stream_init.read()
+    
+version = init.split("__version__ = \"")[1].split("\"")[0]
+version_string = f"__version__ = \"{version}\""
+with open ("__version__", 'r') as stream_version:
+    new_version = stream_version.read()
+    new_version_string = f"__version__ = \"{new_version}\""
+    init = init.replace(version_string, new_version_string)
+    with open ("rumble_bot/__init__.py", 'w+') as stream_init:stream_init.write(init)
+    
+    
+with open ("todos.txt", 'r') as stream_todos:
+    todos = stream_todos.read()
+    
+with open ("README.md", 'a') as stream_append:
+    stream_append.write("\r\n## Project Goals:\r\n")
+    for todo in todos.splitlines():
+        if len(todo) > 0:
+            stream_append.write(f"\r\n- [ ] {todo[0].upper() + todo[1:]}")
+    
 
 
         
