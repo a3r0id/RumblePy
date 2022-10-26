@@ -1,6 +1,6 @@
 from rumble_bot.RumbleBot import RumbleBot
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 
 __doc__     = "Unofficial Python wrapper for automating a Rumble account (Rumble.com)."
 
