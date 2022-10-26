@@ -1,4 +1,4 @@
-from rumble_bot.static import Static
+from rumble_bot.Static import Static
 
 class RumbleBot(object):    
     def __init__(self, username=None, password=None, authCfg=None, opts={}): 
@@ -17,7 +17,12 @@ class RumbleBot(object):
             opts["verbose"] = False
             
         if "proxy" not in opts:
-            opts["proxy"] = None           
+            opts["proxy"] = None         
+        
+        # Feeds subclass
+        from rumble_bot.methods.feeds.Feeds import Feeds    
+        self.feeds = Feeds(self)
+        self.feeds.__setattr__("__doc__", "Methods for fetching data from Rumble.com.")  
         
     from rumble_bot.methods.log       import log
     
@@ -31,7 +36,8 @@ class RumbleBot(object):
     vote.__setattr__("__doc__", "Upvote/Downvote on a video/post specified by `postId`. `vote` must be either `1` (upvote) or `-1` (downvote).")        
     
     from rumble_bot.methods.subscribe import subscribe    
-    subscribe.__setattr__("__doc__", "Subscribe to a channel specified by `slug` and `title` (???).")         
+    subscribe.__setattr__("__doc__", "Subscribe to a channel specified by `slug` and `title` (???).")   
+
         
                       
         

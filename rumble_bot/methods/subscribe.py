@@ -1,5 +1,5 @@
 from requests import post
-from rumble_bot.static import Static
+from rumble_bot.Static import Static
 
 def subscribe(self, slug, title):
     return post(
@@ -9,5 +9,7 @@ def subscribe(self, slug, title):
             "title": title,
             "type": "channel",
             "action": "subscribe"
-        }, cookies={"u_s": self.session}
+        }, 
+        cookies={"u_s": self.session}, 
+        headers={"User-Agent": Static.Request.user_agent}
     ).json()

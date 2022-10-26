@@ -9,8 +9,9 @@ with open ("README.md", 'w+')  as stream_readme:
 # RumbleBot
 *Unofficial Python wrapper for automating a Rumble account (Rumble.com).*
 * This is a work in progress, and is primitive at best.
+* RumbleBot is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
 * In no way am I affiliated with Rumble.com.
-* This is not intended for public use and I am not responsible for any damage caused by this software.
+* This is not intended for public use and I am not responsible for any damage caused by the use this software.
 
 {example}
             """)
@@ -22,13 +23,20 @@ with open ("README.md", 'a') as stream_append:
     
     stream_append.write("\r\n## Methods:\r\n")
     method_docs = []
+    
     for func in dir(r):
+    
         if "__" not in func and "method" in str(type(getattr(r, func))):
             f = getattr(r, func)
             print(f)
+            
             doc = getattr(getattr(r, func), "__doc__")
             if type(getattr(r, func)) != dict and type(getattr(r, func)) != None and doc is not None:
-                source = inspect.getsource(getattr(r, func))
+                try:
+                    source = inspect.getsource(getattr(r, func))
+                except:
+                    continue
+                
                 definition = "???"
                 for line in source.splitlines():
                     if "def" in line:
@@ -37,6 +45,29 @@ with open ("README.md", 'a') as stream_append:
                         
                 method_docs.append(f"""
 #### *[`RumbleBot.{definition}`](#{func})*
+> {doc}""")
+                
+    for func in dir(r.feeds):
+        
+            if "__" not in func and "method" in str(type(getattr(r.feeds, func))):
+                f = getattr(r.feeds, func)
+                print(f)
+                
+                doc = getattr(getattr(r.feeds, func), "__doc__")
+                if type(getattr(r.feeds, func)) != dict and type(getattr(r.feeds, func)) != None and doc is not None:
+                    try:
+                        source = inspect.getsource(getattr(r.feeds, func))
+                    except:
+                        continue
+                    
+                    definition = "???"
+                    for line in source.splitlines():
+                        if "def" in line:
+                            definition = line.split("def ")[1].split(":")[0]
+                            break
+                            
+                    method_docs.append(f"""
+#### *[`RumbleBot.feeds.{definition}`](#{func})*
 > {doc}""")
                 
     # Ensure array item with substring "RumbleBot.login" is first item in array

@@ -1,13 +1,13 @@
-**Feature:** Search for posts, users, tags
+**Feature Request:** Search for posts, users, tags
 
-**Feature:** Video downloader
+**Feature Request:** Video downloader
 
-**Feature:** Stream API for new posts/activity
+**Feature Request:** Post a new post
 
-**Feature:** Post a new post
+**Feature Request:** Reply to nested comments
 
-**Feature:** Reply to nested comments
+**Feature Request:** Delete a comment, reply or post
 
-**Feature:** Delete a comment, reply or post
+**Feature Request:** Async!
 
 
