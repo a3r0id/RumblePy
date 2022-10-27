@@ -70,7 +70,30 @@ with open ("README.md", 'a') as stream_append:
                     method_docs.append(f"""
 #### *[`RumbleBot.feeds.{definition}`](#{func})*
 > {doc}""")
+
+    for func in dir(r.search):
+        
+        if "__" not in func and "method" in str(type(getattr(r.search, func))):
+            f = getattr(r.search, func)
+            print(f)
+            
+            doc = getattr(getattr(r.search, func), "__doc__")
+            if type(getattr(r.search, func)) != dict and type(getattr(r.search, func)) != None and doc is not None:
+                try:
+                    source = inspect.getsource(getattr(r.search, func))
+                except:
+                    continue
                 
+                definition = "???"
+                for line in source.splitlines():
+                    if "def" in line:
+                        definition = line.split("def ")[1].split(":")[0]
+                        break
+                        
+                method_docs.append(f"""
+#### *[`RumbleBot.search.{definition}`](#{func})*
+> {doc}""")
+                                
     # Ensure array item with substring "RumbleBot.login" is first item in array
     for item in method_docs:
         if "RumbleBot.login" in item:

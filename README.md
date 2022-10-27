@@ -16,9 +16,12 @@ r = RumbleBot(authCfg="config/auth.cfg", opts={"verbose": True})
 
 r.login()
 
-print(r.session)
+print(r.search.channels("test"))
+
+print(r.search.videos("test"))
 
 print(r.feeds.subscriptions())
+
 
 
 ```
@@ -37,6 +40,10 @@ print(r.feeds.subscriptions())
 > Fetch featured channels from Rumble.com's homepage.
 #### *[`RumbleBot.feeds.subscriptions(self, page=0)`](#subscriptions)*
 > Fetch your feed from Rumble.com's homepage.
+#### *[`RumbleBot.search.channels(self, query)`](#channels)*
+> Search for channels by string.
+#### *[`RumbleBot.search.videos(self, query)`](#videos)*
+> Search for videos by string.
 ## Project Goals:
 
 - [ ] **Feature Request:** Search for posts, users, tags
