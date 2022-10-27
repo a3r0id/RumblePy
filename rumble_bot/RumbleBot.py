@@ -22,7 +22,12 @@ class RumbleBot(object):
         # Feeds subclass
         from rumble_bot.methods.feeds.Feeds import Feeds    
         self.feeds = Feeds(self)
-        self.feeds.__setattr__("__doc__", "Methods for fetching data from Rumble.com.")  
+        self.feeds.__setattr__("__doc__", "Methods for fetching feeds from Rumble.com.")
+        
+        # Search subclass
+        from rumble_bot.methods.search.Search import Search
+        self.search = Search(self)
+        self.search.__setattr__("__doc__", "Methods for searching across Rumble.com.")  
         
     from rumble_bot.methods.log       import log
     

@@ -5,7 +5,10 @@ r = RumbleBot(authCfg="config/auth.cfg", opts={"verbose": True})
 
 r.login()
 
-print(r.session)
+print(r.search.channels("test"))
+
+print(r.search.videos("test"))
 
 print(r.feeds.subscriptions())
+
 
