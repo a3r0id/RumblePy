@@ -11,7 +11,7 @@ with open ("README.md", 'w+')  as stream_readme:
 * This is a work in progress, and is primitive at best.
 * RumbleBot is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
 * In no way am I affiliated with Rumble.com.
-* This is not intended for public use and I am not responsible for any damage caused by the use this software.
+* This is not intended for public use and I am not responsible for any damage caused by the use of this software.
 * This is not a political project, I simply enjoy reverse engineering social media apps and Rumble has been a very easy platform to do so.
 
 {example}
@@ -112,7 +112,6 @@ with open ("__version__", 'r') as stream_version:
     new_version_string = f"__version__ = \"{new_version}\""
     init = init.replace(version_string, new_version_string)
     with open ("rumble_bot/__init__.py", 'w+') as stream_init:stream_init.write(init)
-    
     
 with open ("todos.txt", 'r') as stream_todos:
     todos = stream_todos.read()

@@ -4,7 +4,7 @@
 * This is a work in progress, and is primitive at best.
 * RumbleBot is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
 * In no way am I affiliated with Rumble.com.
-* This is not intended for public use and I am not responsible for any damage caused by the use this software.
+* This is not intended for public use and I am not responsible for any damage caused by the use of this software.
 * This is not a political project, I simply enjoy reverse engineering social media apps and Rumble has been a very easy platform to do so.
 
 ## Example: 
@@ -21,6 +21,9 @@ print(r.search.channels("test"))
 print(r.search.videos("test"))
 
 print(r.feeds.subscriptions())
+
+
+
 
 
 
