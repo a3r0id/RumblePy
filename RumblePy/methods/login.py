@@ -27,7 +27,7 @@ def login(self, session=None):
     
     self.log("[+] Received Salts: {}".format(salts))   
     
-    with open(pjoin(Path(__file__).parent.parent, pjoin("dom_scripts", "md5.js")), 'r') as f:
+    with open(pjoin(Path(__file__).parent.parent, pjoin("dom_scripts", "md5Ex.js")), 'r') as f:
         js = f.read()
 
     f = eval_js(js)
