@@ -1,12 +1,24 @@
 from js2py import eval_js
 from requests import post
 from rumble_bot.Static import Static
+from rumble_bot.utilities.session_test import session_test
 from pathlib import Path
 from os.path import join as pjoin
 
-def login(self):
+def login(self, session=None):
     
     self.log("[+] Logging in...")
+
+    # Check if we have a session already
+    if session:
+        self.log("[+] Session provided, checking...")
+        self.session = session
+        if session_test(self.session):
+            self.log("[+] Session is valid!")
+            return self.session
+    
+        print ("[+] Invalid session provided, logging in...")
+
     self.log("[+] Getting salt")
 
     r = post(Static.URI.service + "?name=user.get_salts", data={"username": self.username}, headers={"User-Agent": Static.Request.user_agent})
@@ -37,7 +49,7 @@ def login(self):
     
     if json["data"]["session"]:
         self.session = json["data"]["session"]
-        self.log("[+] Login Successful! Session: {}".format(self.session))
+        self.log("[+] Login Successful! Session: {}".format(self.session if not self.hide_session else "<HIDDEN>"))
         
     else:
         self.log("[!] Login Failed!")

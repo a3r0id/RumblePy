@@ -1,7 +1,30 @@
 from rumble_bot.scraper.Scraper import Scraper
 from rumble_bot.Static import Static
 
-def videos(self, query):
+from datetime import datetime
+
+def videos(self, query, sort=None, date=None, duration=None):
+
+    # sort options: None = relevance, "date", "rumbles", "views"
+
+    # date options: None = all time, "today", "this-week", "this-month", "this-year"
+
+    # duration options: None = all, "short", "long"
+
+    if sort:
+        query += "&sort=" + sort
+    else:
+        sort = ""
+
+    if date:
+        query += "&date=" + date
+    else:
+        date = ""
+
+    if duration:
+        query += "&duration=" + duration
+    else:
+        duration = ""
     
     scraper = Scraper(
         Static.URI.base + "/search/video?q=" + query,
@@ -17,11 +40,11 @@ def videos(self, query):
         slug = video.find("a", class_="video-item--a")["href"].split("/")[-1]
         thumbnail = video.find("img", class_="video-item--img")["src"]
         channel = video.find("div", class_="ellipsis-1").text
-        duration = video.find("span", class_="video-item--duration")["data-value"]
-        views = video.find("span", class_="video-item--views")["data-value"]
-        rumbles = video.find("span", class_="video-item--rumbles")["data-value"]
-        time = video.find("time", class_="video-item--time")["datetime"]
-        
+        duration = video.find("span", class_="video-item--duration")["data-value"] if video.find("span", class_="video-item--duration") else None
+        views = video.find("span", class_="video-item--views")["data-value"] if video.find("span", class_="video-item--views") else None
+        rumbles = video.find("span", class_="video-item--rumbles")["data-value"] if video.find("span", class_="video-item--rumbles") else None
+        time =  time = datetime.strptime(video.find("time", class_="video-item--time")["datetime"], "%Y-%m-%dT%H:%M:%S%z") if video.find("time", class_="video-item--time") else None
+
         videos.append({
             "title": title,
             "slug": slug,

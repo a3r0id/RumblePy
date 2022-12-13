@@ -3,4 +3,7 @@ docs
 config
 __pycache__
 test.py
-test.py
+auth.cfg
+re_artifacts
+last_session.txt
+

@@ -10,4 +10,6 @@
 
 **Feature Request:** Async!
 
+**Feature Request:** Brotli compression support
+
 
