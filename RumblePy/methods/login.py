@@ -17,7 +17,7 @@ def login(self, session=None):
             self.log("[+] Session is valid!")
             return self.session
     
-        print ("[+] Invalid session provided, logging in...")
+        self.log("[+] Invalid session provided, logging in...")
 
     self.log("[+] Getting salt")
 
