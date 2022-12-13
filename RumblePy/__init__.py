@@ -1,4 +1,4 @@
-from rumble_bot.RumbleBot import RumbleBot
+from RumblePy.RumbleBot import RumbleBot
 
 __version__ = "0.0.5"
 

@@ -1,15 +1,15 @@
-from rumble_bot import RumbleBot
-import inspect, types
+from   RumblePy import RumbleBot
+import inspect
 
 with open ("example.py", 'r')  as stream_example:
     example = "## Example: \r\n```py\r\n" + stream_example.read() + "\r\n```"
 
 with open ("README.md", 'w+')  as stream_readme:
     stream_readme.write(f"""
-# RumbleBot
+# RumblePy
 *Unofficial Python wrapper for automating a Rumble account (Rumble.com).*
 * This is a work in progress, and is primitive at best.
-* RumbleBot is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
+* RumblePy is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
 * In no way am I affiliated with Rumble.com.
 * This is not intended for public use and I am not responsible for any damage caused by the use of this software.
 * This is not a political project, I simply enjoy reverse engineering social media apps and Rumble has been a very easy platform to do so.
@@ -101,8 +101,8 @@ with open ("README.md", 'a') as stream_append:
                 
     stream_append.write("\r".join(method_docs))
     
-# overwrite "rumble_bot/__init__.py" with updated version
-with open ("rumble_bot/__init__.py", 'r') as stream_init:
+# overwrite "RumblePy/__init__.py" with updated version
+with open ("RumblePy/__init__.py", 'r') as stream_init:
     init = stream_init.read()
     
 version = init.split("__version__ = \"")[1].split("\"")[0]
@@ -111,7 +111,7 @@ with open ("__version__", 'r') as stream_version:
     new_version = stream_version.read()
     new_version_string = f"__version__ = \"{new_version}\""
     init = init.replace(version_string, new_version_string)
-    with open ("rumble_bot/__init__.py", 'w+') as stream_init:stream_init.write(init)
+    with open ("RumblePy/__init__.py", 'w+') as stream_init:stream_init.write(init)
     
 with open ("todos.txt", 'r') as stream_todos:
     todos = stream_todos.read()

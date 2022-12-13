@@ -1,15 +1,7 @@
-**Feature Request:** Search for posts, users, tags
+**Feature Request:** Post a video
 
-**Feature Request:** Video downloader
+**Feature Request:** Async
 
-**Feature Request:** Post a new post
-
-**Feature Request:** Reply to nested comments
-
-**Feature Request:** Delete a comment, reply or post
-
-**Feature Request:** Async!
-
-**Feature Request:** Brotli compression support
+**Feature Request:** Comment enumeration
 
 

@@ -1,4 +1,4 @@
-from rumble_bot.scraper.Scraper import Scraper
+from RumblePy.scraper.Scraper import Scraper
 
 def featured_channels(self):
     scraper  = Scraper('https://rumble.com/')

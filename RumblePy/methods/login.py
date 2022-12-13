@@ -1,7 +1,7 @@
 from js2py import eval_js
 from requests import post
-from rumble_bot.Static import Static
-from rumble_bot.utilities.session_test import session_test
+from RumblePy.Static import Static
+from RumblePy.utilities.session_test import session_test
 from pathlib import Path
 from os.path import join as pjoin
 

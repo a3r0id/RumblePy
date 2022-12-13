@@ -1,5 +1,5 @@
 from requests import post
-from rumble_bot.Static import Static
+from RumblePy.Static import Static
 
 def subscribe(self, slug, title):
     return post(

@@ -2,7 +2,7 @@ import bs4
 from requests import get
 #from brotli import decompress as brotli_decompress
 
-from rumble_bot.Static import Static
+from RumblePy.Static import Static
 
 class Scraper(object):
     

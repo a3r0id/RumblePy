@@ -1,5 +1,5 @@
-from rumble_bot.scraper.Scraper import Scraper
-from rumble_bot.Static import Static
+from RumblePy.scraper.Scraper import Scraper
+from RumblePy.Static import Static
 
 def subscriptions(self, page=0):
     scraper = Scraper(

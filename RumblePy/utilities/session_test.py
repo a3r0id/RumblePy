@@ -1,4 +1,4 @@
-from rumble_bot.Static import Static
+from RumblePy.Static import Static
 from requests import get
 
 def session_test(session):

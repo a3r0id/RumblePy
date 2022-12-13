@@ -1,36 +1,42 @@
-from rumble_bot import RumbleBot
+from RumblePy import RumbleBot
 
-r = RumbleBot(authCfg="auth.cfg", opts={"verbose": True})
+rumble = RumbleBot(authCfg="auth.cfg", opts={"verbose": True})
 
 """
-// Auth.cfg: //
-<username>
-<password>
+    // Auth.cfg: //
+    <username>
+    <password>
 
-// User/Pass Alternative: //
-r = RumbleBot(username="USERNAME_OR_EMAIL", password="PASSWORD", opts={"verbose": True})
+    // User/Pass Alternative: //
+    r = RumbleBot(username="USERNAME_OR_EMAIL", password="PASSWORD", opts={"verbose": True})
 """
 
-r.login()
+rumble.login() # User/Pass alternative (slower)
 
-# r.login(session="SESSION_ID") # Session ID Alternative (faster)
+# rumble.login(session="SESSION_ID") # Static session login alternative (faster)
 
-videos = r.search.videos("test")
-
-for video in videos:
-    print(video["title"])
-    print(video["slug"])
-    print(video["thumbnail"])
-    print(video["views"])
-    print(video["duration"])
-    print(video["time"])
-    print(video["channel"])
-    print(video["rumbles"])
+for video in rumble.search.videos("test"):
+    print ("Title:")
+    print("\t" + video["title"])
+    print("Slug:")
+    print("\t" + video["slug"])
+    print("Thumbnail:")
+    print("\t" + video["thumbnail"])
+    print("Views:")
+    print("\t" + video["views"])
+    print("Duration:")
+    print("\t" + video["duration"])
+    print("Time:")
+    print("\t" + str(video["time"]))
+    print("Channel:")
+    print("\t" + video["channel"])
+    print("Rumbles:")
+    print("\t" + (video["rumbles"] if video["rumbles"] else "N/A"))
     print()
 
-#print(r.search.channels("test"))
+#print(rumble.search.channels("test"))
 
-#print(r.feeds.subscriptions())
+#print(rumble.feeds.subscriptions())
 
 
 

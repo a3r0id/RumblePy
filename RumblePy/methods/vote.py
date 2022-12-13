@@ -1,5 +1,5 @@
 from requests import post
-from rumble_bot.Static import Static
+from RumblePy.Static import Static
 
 def vote(self, postId, vote):
     # 1 for upvote, -1 for downvote
