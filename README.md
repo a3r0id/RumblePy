@@ -1,17 +1,19 @@
 
 # RumblePy
 *Unofficial Python wrapper for automating a Rumble account (Rumble.com).*
-* This is a work in progress, and is primitive at best.
+* This is a work in progress and is primitive at best.
 * RumblePy is a self-botting framework and acts as a user-account, not to be confused with the functionality of Rumble.com's [Official Admin/Editor API](https://help.rumble.com/).
 * In no way am I affiliated with Rumble.com.
-* This is not intended for public use and I am not responsible for any damage caused by the use of this software.
-* This is not a political project, I simply enjoy reverse engineering social media apps and Rumble has been a very easy platform to do so.
+* This module is not intended for public use and I, the author, am not responsible for any damages to any party in which are caused by the use of this software.
 
 ## Example: 
 ```py
 from RumblePy import RumbleBot
 
 rumble = RumbleBot(authCfg="auth.cfg", opts={"verbose": True})
+
+print ("Latest Version:  " + rumble.latest_version)
+print ("Current Version: " + rumble.__version__)
 
 """
     // Auth.cfg: //
@@ -50,9 +52,6 @@ for video in rumble.search.videos("test"):
 #print(rumble.feeds.subscriptions())
 
 
-
-
-
 
 ```
             
@@ -82,4 +81,5 @@ for video in rumble.search.videos("test"):
 
 - [ ] **Feature Request:** Post a video
 - [ ] **Feature Request:** Async
-- [ ] **Feature Request:** Comment enumeration
+- [ ] **Feature Request:** Comment enumeration
+- [ ] **Feature Request:** Support for proxies

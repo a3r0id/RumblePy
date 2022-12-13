@@ -1,3 +1,7 @@
+from RumblePy.utilities.version_control import latestVersion
+
+from os.path import abspath, join as pjoin
+
 class RumbleBot(object):    
     def __init__(self, username=None, password=None, authCfg=None, opts={}, hide_session=False): 
         
@@ -7,6 +11,9 @@ class RumbleBot(object):
         self.session      = None
         self.opts         = opts
         self.hide_session = hide_session
+
+        self.latest_version  = latestVersion()
+        self.__version__     = "0.0.7"        
         
         if self.authCfg:
             with open(self.authCfg, 'r') as f:
@@ -16,7 +23,7 @@ class RumbleBot(object):
             opts["verbose"] = False
             
         if "proxy" not in opts:
-            opts["proxy"] = None         
+            opts["proxy"] = None       
         
         # Feeds subclass
         from RumblePy.methods.feeds.Feeds import Feeds    

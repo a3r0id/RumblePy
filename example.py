@@ -2,6 +2,9 @@ from RumblePy import RumbleBot
 
 rumble = RumbleBot(authCfg="auth.cfg", opts={"verbose": True})
 
+print ("Latest Version:  " + rumble.latest_version)
+print ("Current Version: " + rumble.__version__)
+
 """
     // Auth.cfg: //
     <username>
@@ -37,8 +40,5 @@ for video in rumble.search.videos("test"):
 #print(rumble.search.channels("test"))
 
 #print(rumble.feeds.subscriptions())
-
-
-
 
 

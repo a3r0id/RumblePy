@@ -1,9 +1,9 @@
 from RumblePy.RumbleBot import RumbleBot
 
-__version__ = "0.0.5"
+__version__ = "0.0.7"
 
-__doc__     = "Unofficial Python wrapper for automating a Rumble account (Rumble.com)."
+__doc__     = "Unofficial Python module for automating a Rumble account (Rumble.com)."
 
 """_summary_
-/* By A3R0 | 2022 | https://github.com/hostinfodev/Rumble-Bot */
+/* By A3R0 | 2022 | https://github.com/a3r0id/Rumble-Bot */
 """

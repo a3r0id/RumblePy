@@ -4,4 +4,6 @@
 
 **Feature Request:** Comment enumeration
 
+**Feature Request:** Support for proxies
+
 
